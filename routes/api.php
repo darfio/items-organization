@@ -15,6 +15,11 @@ use App\Item;
 */
 
 
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
 Route::get('/items/{id}', function ($id) {
     $item = Item::find($id);
     return $item->toJson();

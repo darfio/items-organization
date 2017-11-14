@@ -7,6 +7,8 @@ use App\ItemCat;
 use Illuminate\Http\Request;
 use App\Http\Requests\ItemRequest;
 
+use Auth;
+
 class ItemController extends Controller
 {
 
@@ -27,6 +29,11 @@ class ItemController extends Controller
      */
     public function index()
     {
+
+        $id = Auth::guard('api');
+        var_dump($id);
+        die;
+
         $items = Item::All();
         $data = [
             'items' => $items,
