@@ -29,11 +29,6 @@ class ItemController extends Controller
      */
     public function index()
     {
-
-        $id = Auth::guard('api');
-        var_dump($id);
-        die;
-
         $items = Item::All();
         $data = [
             'items' => $items,
